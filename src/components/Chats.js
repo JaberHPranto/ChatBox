@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ChatEngine } from 'react-chat-engine'
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
@@ -8,9 +8,9 @@ import { auth } from '../firebase'
 function Chats() {
     const [loading, setLoading] = useState(true)
     const history = useHistory()
+    const didMountRef = useRef(false) 
 
     const { user } = useAuth()
-    console.log(user);
 
     const handleSignOut = async () => {
         await auth.signOut();
@@ -26,14 +26,19 @@ function Chats() {
     }
 
     useEffect(() => {
-        if (!user) {
+        if (!didMountRef.current) {
+            didMountRef.current=true
+        }
+        if (!user || user === null) {
             history.push("/")
             return;
         }
 
-        axios.get("https://api.chatengine.io/users/me", {
+        console.log(user);
+
+        axios.get("https://api.chatengine.io/users/me/", {
             headers: {
-                "projectId": "05705edc-c48e-4f8d-8eda-a05bc16ce02b",
+                "project-id": "05705edc-c48e-4f8d-8eda-a05bc16ce02b",
                 "user-name": user.email,
                 "user-secret": user.uid,
             }
@@ -50,11 +55,11 @@ function Chats() {
                     formData.append('avatar', avatar, avatar.name)
                     
                     // create the user
-                    axios.post("https://api.chatengine.io/users",
+                    axios.post("https://api.chatengine.io/users/",
                         formData,
                         {
                             headers: {
-                                "private-key": "8510852e-5b4f-4ebc-a4d6-5a85ea05be37"
+                                "private-key": process.env.CHAT_ENGINE_SECRET_KEY
                             }
                         }
                     )
