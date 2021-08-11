@@ -1,0 +1,75 @@
+{
+  "chatList": {
+    "padding": "16px",
+    "borderRight": "1px solid rgb(175, 175, 175)",
+    "height": "calc(100% - 66px)",
+    "backgroundColor": "#722ed1"
+  },
+  "titleContainer": {
+    "padding": "0px 12px"
+  },
+  "chatsContainer": {
+    "padding": "22px 0px"
+  },
+  "link": {
+    "cursor": "pointer",
+    "padding": "3px 0px",
+    "display": "inline-block",
+    "color": "white"
+  },
+  "chatGroupTitle": {
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "color": "white"
+  },
+  "newChatButton": {
+    "float": "right",
+    "width": "33px",
+    "backgroundColor": "#722ed1",
+    "border": "1px solid white",
+    "borderRadius": "50%",
+    "fontSize": "24px",
+    "cursor": "pointer",
+    "color": "white",
+    "position": "relative",
+    "bottom": "3px"
+  },
+  "chatTimeContainer": {
+    "zIndex": 100,
+    "position": "absolute",
+    "top": "52px",
+    "width": "100%",
+    "textAlign": "center"
+  },
+  "chatTimeContent": {
+    "backgroundColor": "#722ed1",
+    "color": "white",
+    "padding": "4px 8px",
+    "borderRadius": "4px",
+    "display": "inline"
+  },
+  "avatar": {
+    "height": "50px",
+    "width": "50px",
+    "margin": "4px",
+    "borderRadius": "4px",
+    "textAlign": "center"
+  },
+  "avatarText": {
+    "fontSize": "22px",
+    "fontWeight": "600",
+    "color": "white",
+    "paddingTop": "11px"
+  },
+  "messageRow": {
+    "marginLeft": "58px",
+    "width": "calc(100% - 60px)",
+    "padding": "0px 4px"
+  },
+  "messageSender": {
+    "paddingBottom": "6px",
+    "fontSize": "14px",
+    "fontWeight": "700",
+    "color": "#454545"
+  }
+}

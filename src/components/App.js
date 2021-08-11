@@ -8,7 +8,7 @@ import Login from "./Login"
 
 function App() {
   return (
-    <div style={{ fontFamily: 'Avenir' }}>
+    <div>
       <Router>
         <AuthProvider>
           <Switch>

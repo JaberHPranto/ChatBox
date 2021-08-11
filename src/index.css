@@ -1,7 +1,8 @@
 /* Global */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@300;400&display=swap");
 
 * {
-  font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
@@ -98,4 +99,10 @@
   position: relative;
   left: calc(50vw - 33px);
   top: calc(50vh - 22px);
+}
+
+/* Chat Engine */
+.ce-my-message-bubble {
+  background-color: #b19cd9 !important;
+  /* background-color: #5957bc !important; */
 }

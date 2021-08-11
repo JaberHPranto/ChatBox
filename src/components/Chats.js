@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import { ChatEngine } from 'react-chat-engine'
 import { useHistory } from 'react-router-dom'
+import ChatList from '../components/ChatList/index'
 import { useAuth } from '../contexts/AuthContext'
 import { auth } from '../firebase'
 
@@ -34,8 +35,6 @@ function Chats() {
             return;
         }
 
-        console.log(user);
-
         axios.get("https://api.chatengine.io/users/me/", {
             headers: {
                 "project-id": "05705edc-c48e-4f8d-8eda-a05bc16ce02b",
@@ -59,7 +58,7 @@ function Chats() {
                         formData,
                         {
                             headers: {
-                                "private-key": process.env.CHAT_ENGINE_SECRET_KEY
+                                "private-key": "8510852e-5b4f-4ebc-a4d6-5a85ea05be37"
                             }
                         }
                     )
@@ -82,12 +81,14 @@ function Chats() {
 
                     <ChatEngine
                         height="calc(100vh - 66px)"
+                        className="chat-eng"
                         projectID="05705edc-c48e-4f8d-8eda-a05bc16ce02b"
                         userName={user.email}
                         userSecret={user.uid}
-                    />
-
+                        renderChatList={(chatEngineState) => <ChatList {...chatEngineState} />}   
+                        />
                 </div>
+                
             </div>
         )
     }
