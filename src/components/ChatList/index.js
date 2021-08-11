@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import { ChatEngineContext } from 'react-chat-engine';
+import { ChatEngineContext, getOrCreateChat } from 'react-chat-engine';
 import ChatGroup from './ChatGroup';
 import ChatLink from './ChatLink';
 
-let styles = require('../../styles.json')
 
-function ChatList(props) {
 
+let styles = require('../../styles.json');
+
+const ChatList = props => {
     const { setActiveChat } = useContext(ChatEngineContext)
-    
-    console.log(props);
 
     function hasReadLastMessage(chat) {
         var lastReadMessageID = -1
@@ -21,34 +20,75 @@ function ChatList(props) {
         return !chat.last_message.id || lastReadMessageID === chat.last_message.id
     }
 
-
     function renderChannels() {
         const chatList = props.chats ? Object.values(props.chats) : []
         return chatList.map((chat, index) => {
-            if (!chat.is_direct_chat) {
+            if (chat && !chat.is_direct_chat) {
                 return (
-                    <ChatLink
-                        key={`chat-${index}`}
+                    <ChatLink 
+                        key={`chat-${index}`} 
                         title={`# ${chat.title}`}
                         bold={!hasReadLastMessage(chat)}
-                        onClick = {() => setActiveChat(chat.id)}
+                        onClick={() => setActiveChat(chat.id)}
                     />
-                ) 
-
+                )
             } else {
                 return <div key={`chat-${index}`} />
             }
         })
     }
 
+    function returnNotMe(chat) {
+        let username = ''
+        console.log(chat);
+        chat.people.map(chat_person => {
+            if (chat_person.person.username !== props.userName) {
+                username = chat_person.person.first_name || chat_person.person.username
+            }
+        })
+        return username
+    }
+
+    function renderDirectMessages() {
+        const chatList = props.chats ? Object.values(props.chats) : []
+        return chatList.map((chat, index) => {
+            console.log(chat);
+            if (chat && chat.is_direct_chat) {
+                return (
+                    <ChatLink 
+                        key={`chat-${index}`} 
+                        title={`${returnNotMe(chat)}`}
+                        bold={!hasReadLastMessage(chat)}
+                        onClick={() => setActiveChat(chat.id)}
+                    />
+                )
+            } else {
+                return <div key={`chat-${index}`} />
+            }
+        })
+    }
+
+    function onChannelCreate(data) {
+        const chat = { title: data.value }
+        getOrCreateChat(props, chat, r => console.log('New Channel', r))
+    }
+
+
+    function onDirectMessageCreate(data) {
+        const chat = { 
+            is_direct_chat: true,
+            usernames: [data.value, props.userName]
+        }
+        getOrCreateChat(props,chat, r => console.log('New DM', r))
+    }
 
     return (
         <div style={styles.chatList}>
             <div style={styles.titleContainer}>
                 <ChatGroup 
                     title='Channels' 
-                    placeholder='Create a Chat Group'
-                    // onSubmit={(data) => onChannelCreate(data)}
+                    placeholder='Create a group'
+                    onSubmit={(data) => onChannelCreate(data)}
                 />
             </div>
 
@@ -59,16 +99,16 @@ function ChatList(props) {
             <div style={styles.titleContainer}>
                 <ChatGroup 
                     title='Direct Messages' 
-                    placeholder='Type a username'
-                    // onSubmit={(data) => onDirectMessageCreate(data)}
+                    placeholder='Type a email'
+                    onSubmit={(data) => onDirectMessageCreate(data)}
                 />
             </div>
 
             <div style={styles.chatsContainer}>
-                {/* { renderDirectMessages() } */}
+                { renderDirectMessages() }
             </div>
         </div>
     );
 }
 
-export default ChatList
+export default ChatList;
