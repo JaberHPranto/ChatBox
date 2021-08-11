@@ -85,7 +85,8 @@ const ChatList = props => {
             <div style={styles.titleContainer}>
                 <ChatGroup 
                     title='Channels' 
-                    placeholder='Create a group'
+                    header="Create a channel"
+                    placeholder='Channel name'
                     onSubmit={(data) => onChannelCreate(data)}
                 />
             </div>
@@ -97,7 +98,8 @@ const ChatList = props => {
             <div style={styles.titleContainer}>
                 <ChatGroup 
                     title='Direct Messages' 
-                    placeholder='Type a email'
+                    header="Connect with people"
+                    placeholder='Type email whom you want to connect'
                     onSubmit={(data) => onDirectMessageCreate(data)}
                 />
             </div>

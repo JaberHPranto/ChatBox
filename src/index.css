@@ -47,8 +47,9 @@
 
 /* Login Page */
 
-#login-page {
-  background-image: linear-gradient(#40a9ff, #096dd9);
+.login-page {
+  /* background-image: linear-gradient(#40a9ff, #096dd9) !important; */
+  background-color: red !important;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -56,7 +57,7 @@
   right: 0px;
 }
 
-#login-card {
+.login-card {
   position: relative;
   top: calc(50vh - 144px);
   left: calc(50vw - 210px);
@@ -74,6 +75,7 @@
   padding: 12px;
   border-radius: 8px;
   display: inline-block;
+  width: 18rem;
 }
 
 .facebook {
@@ -85,7 +87,7 @@
   color: white;
 }
 
-#loading-container {
+.loading-container {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -94,17 +96,11 @@
   background-color: rgb(255, 255, 255, 0.22);
 }
 
-#loading-icon {
+.loading-icon {
   font-size: 66px;
   position: relative;
   left: calc(50vw - 33px);
   top: calc(50vh - 22px);
-}
-
-.spinner {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 /* Chat Engine */
@@ -137,6 +133,13 @@
   bottom: 0px;
   width: 100%;
   padding: 11px;
-  margin-top: 10px;
   background-color: rgb(240, 240, 240);
+}
+
+/* Chat Group */
+.chat-group-con {
+  display: flex;
+}
+.chat-group-title {
+  color: red !important;
 }

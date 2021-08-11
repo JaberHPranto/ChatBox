@@ -15,15 +15,9 @@ function MessageForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const text = value.trim()
-        // console.log(creds.userName);
-        // console.log(creds.userSecret);
-        // console.log(creds.projectID);
-        const sender_username= creds?.userName
-    
-        console.log(chatId);
+        const sender_username = creds?.userName
         if (text.length > 0) {
             sendMessage(creds, chatId, { text,sender_username }, r => console.log('Message Send', r))
-            // sendMessage(creds, chatId, { text });
         }
         setValue("")
     }

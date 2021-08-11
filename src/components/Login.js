@@ -7,8 +7,8 @@ import { auth } from '../firebase'
 
 function Login() {
     return (
-        <div id="login-page">
-            <div id="login-card">
+        <div className="login-page">
+            <div className="login-card">
                 <h2>Welcome to Chat Box</h2>
                 <div className="login-button google" onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}><GoogleOutlined />
                 Sign in with Google</div>
