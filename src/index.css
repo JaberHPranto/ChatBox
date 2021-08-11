@@ -101,8 +101,42 @@
   top: calc(50vh - 22px);
 }
 
+.spinner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 /* Chat Engine */
 .ce-my-message-bubble {
   background-color: #b19cd9 !important;
   /* background-color: #5957bc !important; */
+}
+
+/* Message Form */
+.form-input {
+  width: 90%;
+}
+
+.message-form {
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #3b2a50;
+  background-color: white;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  /* margin-top: -5px; */
+}
+.message-form > * {
+  margin-right: 4px;
+}
+
+.message-form-container {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 11px;
+  margin-top: 10px;
+  background-color: rgb(240, 240, 240);
 }

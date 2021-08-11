@@ -40,7 +40,6 @@ const ChatList = props => {
 
     function returnNotMe(chat) {
         let username = ''
-        console.log(chat);
         chat.people.map(chat_person => {
             if (chat_person.person.username !== props.userName) {
                 username = chat_person.person.first_name || chat_person.person.username
@@ -52,7 +51,6 @@ const ChatList = props => {
     function renderDirectMessages() {
         const chatList = props.chats ? Object.values(props.chats) : []
         return chatList.map((chat, index) => {
-            console.log(chat);
             if (chat && chat.is_direct_chat) {
                 return (
                     <ChatLink 

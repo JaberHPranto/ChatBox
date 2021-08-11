@@ -1,8 +1,10 @@
+import { Spinner } from "@chakra-ui/react"
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import { ChatEngine } from 'react-chat-engine'
 import { useHistory } from 'react-router-dom'
 import ChatList from '../components/ChatList/index'
+import MessageForm from '../components/MessageForm/index'
 import { useAuth } from '../contexts/AuthContext'
 import { auth } from '../firebase'
 
@@ -34,8 +36,6 @@ function Chats() {
             history.push("/")
             return;
         }
-
-        console.log(user);
 
         axios.get("https://api.chatengine.io/users/me/", {
             headers: {
@@ -73,7 +73,11 @@ function Chats() {
 
         }, [user, history])
 
-        if(!user || loading) return "Loading..."
+    if (!user || loading)
+        return (
+                <Spinner thickness="4px" speed="0.5s" emptyColor="gray.200" color="blue.500" size="xl" />
+        )
+    
         return (
             <div>
                 <div className="chats-page">
@@ -88,7 +92,8 @@ function Chats() {
                         projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
                         userName={user.email}
                         userSecret={user.uid}
-                        renderChatList={(chatEngineState) => <ChatList {...chatEngineState} />}   
+                        renderChatList={(chatEngineState) => <ChatList {...chatEngineState} />}
+                        renderNewMessageForm={(creds, chatId) => <MessageForm creds={creds} chatId={chatId}/>}
                         />
                 </div>
                 

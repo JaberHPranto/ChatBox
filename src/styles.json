@@ -2,7 +2,7 @@
   "chatList": {
     "padding": "16px",
     "borderRight": "1px solid rgb(175, 175, 175)",
-    "height": "calc(100% - 66px)",
+    "height": "calc(100vh - 66px)",
     "backgroundColor": "#722ed1"
   },
   "titleContainer": {
@@ -24,7 +24,8 @@
   },
   "newChatButton": {
     "float": "right",
-    "width": "33px",
+    "width": "37px",
+    "height": "37px",
     "backgroundColor": "#722ed1",
     "border": "1px solid white",
     "borderRadius": "50%",

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ChatEngineWrapper, ChatFeed, ChatSettings, Socket } from 'react-chat-engine'
 import { Col } from 'react-grid-system'
+import ChatList from '../components/ChatList/index'
 
 
 
@@ -16,6 +17,8 @@ const ChatEngine = ({userName,userSecret,projectID}) => {
 
             <Col xs={0} sm={3}>
                 {/* {renderChatList={(chatEngineState) => <ChatList {...chatEngineState} />}}; */}
+                <ChatList />
+
             </Col>
 
             <Col xs={12} sm={6}>
