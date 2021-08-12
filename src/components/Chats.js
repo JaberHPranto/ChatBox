@@ -39,7 +39,7 @@ function Chats() {
 
         axios.get("https://api.chatengine.io/users/me/", {
             headers: {
-                "project-id": "05705edc-c48e-4f8d-8eda-a05bc16ce02b ",
+                "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
                 "user-name": user.email,
                 "user-secret": user.uid,
             }
@@ -71,7 +71,8 @@ function Chats() {
                 })  
             })
 
-        }, [user, history])
+    }, [user, history])
+    
 
     if (!user || loading)
         return (
@@ -92,9 +93,10 @@ function Chats() {
                         projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
                         userName={user.email}
                         userSecret={user.uid}
+                        offset={7}
                         renderChatList={(chatEngineState) => <ChatList {...chatEngineState} />}
                         renderNewMessageForm={(creds, chatId) => <MessageForm creds={creds} chatId={chatId}/>}
-                        />
+                    />
                 </div>
                 
             </div>
