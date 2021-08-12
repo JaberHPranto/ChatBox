@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import ChatList from '../components/ChatList/index'
 import MessageForm from '../components/MessageForm/index'
 import { useAuth } from '../contexts/AuthContext'
-import { auth } from '../firebase'
+import NavBar from "./NavBar"
 
 function Chats() {
     const [loading, setLoading] = useState(true)
@@ -14,11 +14,6 @@ function Chats() {
     const didMountRef = useRef(false) 
 
     const { user } = useAuth()
-
-    const handleSignOut = async () => {
-        await auth.signOut();
-        history.push("/")
-    }
 
     // for handling images
     const getFile = async (url) => {
@@ -82,11 +77,7 @@ function Chats() {
         return (
             <div>
                 <div className="chats-page">
-                    <div className="nav-bar">
-                        <div className="logo-tab">ChatBox</div>
-                        <div className="logout-tab" onClick={handleSignOut}>Logout</div>
-                    </div>
-
+                    <NavBar />
                     <ChatEngine
                         height="calc(100vh - 66px)"
                         className="chat-eng"

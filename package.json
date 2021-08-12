@@ -17,7 +17,6 @@
     "react": "^16.13.1",
     "react-chat-engine": "^1.8.10",
     "react-dom": "^16.13.1",
-    "react-giphy-searchbox": "^1.5.4",
     "react-grid-system": "^7.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",

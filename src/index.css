@@ -39,6 +39,22 @@
   color: white;
   cursor: pointer;
 }
+.profile-tab {
+  position: absolute;
+  top: 22px;
+  right: 120px;
+  color: white;
+  cursor: pointer;
+}
+/* profile page */
+.profile-header {
+  text-align: center;
+  font-size: 1.5rem !important;
+}
+.profile-pic {
+  margin: 0 auto !important;
+  margin-bottom: 1.8rem !important;
+}
 
 ::-webkit-scrollbar {
   width: 0; /* Remove scrollbar space */
@@ -116,11 +132,17 @@
 .picture-smile {
   width: 64%;
   margin-left: 8px;
+  cursor: pointer;
 }
 /* Chat Engine */
 .ce-my-message-bubble {
   background-color: #b19cd9 !important;
   /* background-color: #5957bc !important; */
+}
+.ce-text-input {
+  font-family: "Varela Round" !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 0.7rem;
 }
 /* .ce-chat-feed-container {
   background-color: purple !important;
