@@ -1,8 +1,10 @@
-import { PictureOutlined, SendOutlined, SmileOutlined } from '@ant-design/icons';
 import { Input } from "@chakra-ui/react";
 import Picker from 'emoji-picker-react';
 import React, { useState } from 'react';
 import { isTyping, sendMessage } from 'react-chat-engine';
+import frame2 from '../../images/frame2.png';
+import send from '../../images/send.png';
+import smile from '../../images/smile.png';
 
 function MessageForm(props) {
     const [value, setValue] = useState("")
@@ -38,28 +40,35 @@ function MessageForm(props) {
     function onEmojiClick(event,emojiObject) {
         setValue(value + `${emojiObject?.emoji}`);
     }
-
+    
 
     return (
         <div className="message-form-container">
+      
             <form className="message-form" onSubmit={handleSubmit}>
-                <div className="form-input">
-                <Input
-                    placeholder="Send message..."
-                    value={value}
-                    onChange={handleChange.bind(this)}
-                    // onSubmit={handleSubmit}
-                >
-                </Input>
-
-                </div>
 
                 <label htmlFor="upload-button">
                     <span className="image-button">
-                        <PictureOutlined className="picture-icon" />
+                        <img src={frame2} alt='emoji' className="picture-img image-send"/>
+                    </span>      
+                </label>
+
+                <label htmlFor="emoji">
+                    <span className="image-button">
+                        <img src={smile} alt='emoji' className="picture-smile" onClick={()=>toggleEmojiPicker()} />
                     </span>      
                 </label>
                 
+
+                <div className="form-input">
+                    <Input
+                        placeholder="Send message..."                    
+                        value={value}
+                        onChange={handleChange.bind(this)}
+                    >
+                    </Input>
+                </div>
+ 
                 <input
                     type="file"
                     multiple={false}
@@ -68,21 +77,16 @@ function MessageForm(props) {
                     onChange={handleUpload.bind(this)}
                 />
 
-                <label htmlFor="emoji">
-                    <span className="image-button">
-                        <SmileOutlined className="picture-icon" onClick={()=>toggleEmojiPicker()} />
-                    </span>      
-                </label>
-
                 <button type="submit" className="send-button">
-                    <SendOutlined className="send-icon" />
+                    <img src={send} alt='emoji' className="picture-send"/>
                 </button>
 
             </form>
+            
             <span>{emojiPickerState && <Picker
                 onEmojiClick={onEmojiClick}
+                native
                 disableAutoFocus={true}
-                
             />} 
             </span>
 
