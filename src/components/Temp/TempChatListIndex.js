@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { ChatEngineContext, getOrCreateChat } from 'react-chat-engine';
-import ChatListCustom from '../Customization/ChatListCustom';
 import ChatGroup from './ChatGroup';
 import ChatLink from './ChatLink';
 
@@ -88,7 +87,7 @@ const ChatList = props => {
     return (
         // <div style={styles.chatList}>
         <div className={color}>
-            <ChatListCustom handleTheme={(color)=>handleTheme(color) }/>
+            <button onClick={()=>handleTheme('purple')}>Change Theme</button>
             <div style={styles.titleContainer}>
                 <ChatGroup 
                     title='Channels' 

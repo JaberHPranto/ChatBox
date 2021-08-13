@@ -135,10 +135,10 @@
   cursor: pointer;
 }
 /* Chat Engine */
-.ce-my-message-bubble {
+/* .ce-my-message-bubble {
   background-color: #b19cd9 !important;
   /* background-color: #5957bc !important; */
-}
+
 .ce-text-input {
   font-family: "Varela Round" !important;
   font-size: 1.3rem !important;
@@ -185,4 +185,110 @@
 }
 .chat-group-title {
   color: red !important;
+}
+
+/* THEME */
+
+/* ChatList Theme Customization */
+.chatList {
+  padding: 16px;
+  border-right: 1px solid rgb(175, 175, 175);
+  height: calc(100vh - 66px);
+}
+.chatList-color-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+.chatList-span {
+  float: left;
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
+}
+.chakra-radio__label {
+  font-family: "Varela Round";
+  font-size: 1.3rem !important;
+}
+
+.chatList.blue,
+.chatList-span.blue {
+  background-image: radial-gradient(
+    circle farthest-corner at 12.3% 19.3%,
+    rgba(85, 88, 218, 1) 0%,
+    rgba(95, 209, 249, 1) 100.2%
+  );
+}
+.chatList.red,
+.chatList-span.red {
+  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+}
+.chatList.green,
+.chatList-span.green {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(14, 174, 87, 1) 0%,
+    rgba(12, 116, 117, 1) 90%
+  );
+}
+.chatList.purple,
+.chatList-span.purple {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(157, 75, 199, 1) 11.2%,
+    rgba(119, 81, 204, 1) 83.1%
+  );
+}
+.chatList.brown,
+.chatList-span.brown {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(147, 67, 67, 1) 0%,
+    rgba(111, 27, 27, 1) 90%
+  );
+}
+.chatList.yellow,
+.chatList-span.yellow {
+  background-image: radial-gradient(
+    circle,
+    #ffc75f,
+    #ffba61,
+    #ffad65,
+    #ffa16b,
+    #ff9671
+  );
+}
+.chatList.pink,
+.chatList-span.pink {
+  background-image: radial-gradient(
+    circle 685.3px at 47.8% 55.1%,
+    rgba(255, 99, 152, 1) 0%,
+    rgba(251, 213, 149, 1) 90.1%
+  );
+}
+.chatList.orange,
+.chatList-span.orange {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 209, 67, 1) 0%,
+    rgba(255, 145, 83, 1) 90%
+  );
+}
+.chatList.dark,
+.chatList-span.dark {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(90, 92, 106, 1) 0%,
+    rgba(32, 45, 58, 1) 81.3%
+  );
+}
+.chatList.mint,
+.chatList-span.mint {
+  background-image: linear-gradient(
+    to right bottom,
+    #009245,
+    #50ac3f,
+    #86c435,
+    #bfda28,
+    #fcee21
+  );
 }

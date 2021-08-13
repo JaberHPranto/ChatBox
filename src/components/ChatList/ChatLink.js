@@ -5,7 +5,7 @@ let styles = require('../../styles.json');
 const ChatLink = props => {
     const [hovered, setHovered] = useState(false)
 
-    var color = '#dfdfdf'
+    var color = 'white';
     if (props.bold) color = 'white'
     if (hovered) color = 'yellow'
 
